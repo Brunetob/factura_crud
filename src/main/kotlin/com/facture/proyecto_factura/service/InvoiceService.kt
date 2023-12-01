@@ -1,6 +1,5 @@
 package com.facture.proyecto_factura.service
 
-import com.facture.proyecto_factura.model.ClientModel
 import com.facture.proyecto_factura.model.InvoiceModel
 import com.facture.proyecto_factura.repository.ClientRepository
 import com.facture.proyecto_factura.repository.InvoiceRepository
