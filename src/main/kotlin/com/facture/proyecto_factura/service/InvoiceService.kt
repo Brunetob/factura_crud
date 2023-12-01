@@ -76,7 +76,10 @@ class InvoiceService {
         }
     }
 
-    fun listByTotal(value: Double): List<InvoiceModel>{ // Definir el SQL nativo - Ejemplo Factura
+    /*fun listByTotal(value: Double): List<InvoiceModel>{ // Definir el SQL nativo - Ejemplo Factura
         return invoiceRepository.findAll()
+    }*/
+    fun filterTotal(value:Double?): List<InvoiceModel>? {
+        return invoiceRepository.filterTotal(value)
     }
 }

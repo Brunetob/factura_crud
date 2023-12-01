@@ -1,2 +1,2 @@
-Invoice.filterTotal=SELECT * FROM invoice WHERE total >= :value;
-
+# Lista todas las facturas mayores a ...(comentario)
+Invoice.filterTotal = SELECT * FROM invoice WHERE total > :value
