@@ -75,4 +75,8 @@ class InvoiceService {
                 ?: throw ResponseStatusException(HttpStatus.BAD_REQUEST, "El total de la factura no debe ser negativo")
         }
     }
+
+    fun listByTotal(value: Double): List<InvoiceModel>{ // Definir el SQL nativo - Ejemplo Factura
+        return invoiceRepository.findAll()
+    }
 }

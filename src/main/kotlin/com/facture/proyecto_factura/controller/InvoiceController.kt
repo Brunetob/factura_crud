@@ -51,4 +51,10 @@ class InvoiceController {
             ResponseEntity.status(HttpStatus.NOT_FOUND).body(JSendResponse("fail", null, "Invoice not found"))
         }
     }
+
+    // Definir el SQL nativo - Ejemplo Factura
+    @GetMapping("/filter-total/{value}")//endpoint de sub-ruta --> localhost:8081/invoice/totals/55) // Definir el SQL nativo - Ejemplo Factura
+    fun listTotals (@PathVariable("value") value: Double ):ResponseEntity<*>{
+        return ResponseEntity(invoiceService.listByTotal(value), HttpStatus.OK) //Se coloca la función que se creó en el service (listByTotal)
+    }
 }

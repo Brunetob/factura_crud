@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+//import java.awt.print.Pageable
+import org.springframework.data.domain.Pageable;
 
 data class JSendResponse<T>(
     val status: String,
@@ -20,11 +22,16 @@ class ClientController {
     @Autowired
     lateinit var clientService: ClientService
 
-    @GetMapping
+    /*@GetMapping
     fun list(): ResponseEntity<JSendResponse<List<ClientModel>>> {
         val clientsList = clientService.list()
         return ResponseEntity.ok(JSendResponse("success", clientsList))
-    }
+    }*/
+    @GetMapping// Para paginación en el front
+    fun list (model:ClientModel, pageable: Pageable):ResponseEntity<*>{
+        val response= clientService.list(pageable,model)
+        return ResponseEntity(response, HttpStatus.OK)
+    } // Para paginación en el front
 
     // Peticiones POST - Clase controller
     @PostMapping

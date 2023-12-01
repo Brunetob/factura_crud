@@ -1,8 +1,13 @@
 package com.facture.proyecto_factura.service
 
 import com.facture.proyecto_factura.model.ClientModel
+import com.facture.proyecto_factura.model.InvoiceModel
 import com.facture.proyecto_factura.repository.ClientRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.domain.Example
+import org.springframework.data.domain.ExampleMatcher
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
@@ -12,8 +17,14 @@ class ClientService {
     @Autowired
     lateinit var clientRepository: ClientRepository
 
-    fun list(): List<ClientModel> {
+    /*fun list(): List<ClientModel> {
         return clientRepository.findAll()
+    }*/
+    fun list (pageable: Pageable,model:ClientModel):Page<ClientModel>{
+        val matcher = ExampleMatcher.matching()
+            .withIgnoreNullValues()
+            .withMatcher(("full_name_client"), ExampleMatcher.GenericPropertyMatchers.contains().ignoreCase())
+        return clientRepository.findAll(Example.of(model, matcher), pageable)
     }
 
     // PETICIONES POST

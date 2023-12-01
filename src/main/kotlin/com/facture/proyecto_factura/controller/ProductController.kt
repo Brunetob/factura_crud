@@ -3,6 +3,7 @@ package com.facture.proyecto_factura.controller
 import com.facture.proyecto_factura.model.ProductModel
 import com.facture.proyecto_factura.service.ProductService
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -14,11 +15,17 @@ class ProductController {
     @Autowired
     lateinit var productService: ProductService
 
-    @GetMapping
+    /*@GetMapping
     fun list(): ResponseEntity<JSendResponse<List<ProductModel>>> {
         val productsList = productService.list()
         return ResponseEntity.ok(JSendResponse("success", productsList))
-    }
+    }*/
+
+    @GetMapping
+    fun list (model:ProductModel, pageable: Pageable):ResponseEntity<*>{
+        val response= productService.list(pageable,model)
+        return ResponseEntity(response, HttpStatus.OK)
+    }// Para paginación en el front
 
     @PostMapping
     fun save(@RequestBody productModel: ProductModel): ResponseEntity<JSendResponse<ProductModel>> {
