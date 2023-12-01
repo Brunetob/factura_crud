@@ -14,5 +14,5 @@ interface InvoiceRepository : JpaRepository<InvoiceModel, Long?> {
     //clase repository
 
     @Query(nativeQuery = true) // Definir el SQL nativo - Ejemplo Factura
-        fun filterTotal(@Param ("value") value: Double?):List<InvoiceModel>?
+    fun filterTotal(@Param ("value") value: Double?):List<InvoiceModel>?
 }
