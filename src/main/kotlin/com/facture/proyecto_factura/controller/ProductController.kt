@@ -1,5 +1,6 @@
 package com.facture.proyecto_factura.controller
 
+import com.facture.proyecto_factura.dto.ProductDto
 import com.facture.proyecto_factura.model.ProductModel
 import com.facture.proyecto_factura.service.ProductService
 import org.springframework.beans.factory.annotation.Autowired
@@ -57,5 +58,15 @@ class ProductController {
         } else {
             ResponseEntity.status(HttpStatus.NOT_FOUND).body(JSendResponse("fail", null, "Product not found"))
         }
+    }
+
+    /*******************************Espacio para native query******************************/
+
+    /*******************************Código para Mostrar Lista Dto******************************/
+    // Endpoint para obtener una lista de DTOs
+    @GetMapping("/list-dto")
+    fun listDto(): ResponseEntity<JSendResponse<List<ProductDto>>> {
+        val productDtoList = productService.listDto()
+        return ResponseEntity.ok(JSendResponse("success", productDtoList))
     }
 }

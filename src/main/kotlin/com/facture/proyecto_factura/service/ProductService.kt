@@ -1,5 +1,7 @@
 package com.facture.proyecto_factura.service
 
+import com.facture.proyecto_factura.dto.ProductDto
+import com.facture.proyecto_factura.mapper.ProductMapper
 import com.facture.proyecto_factura.model.ProductModel
 import com.facture.proyecto_factura.repository.ProductRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -69,5 +71,21 @@ class ProductService {
             stock?.takeIf { it >= 0 }
                 ?: throw ResponseStatusException(HttpStatus.BAD_REQUEST, "El stock del producto no debe ser negativo")
         }
+    }
+
+    /************************Espacio para colocar native query*****************/
+
+    /************************Incio del Product DTO*****************/
+    fun listDto(): List<ProductDto> {
+        val productList = productRepository.findAll() // conjunto de productos
+        //necesitamos devolver un conjunto de productosDTo
+        val productDtoList = mutableListOf<ProductDto>() // lista mutable vacía
+
+        for (product in productList) { // iterar en la lista
+            val dto = ProductMapper.mapToDto(product) // se llama al mapper
+            productDtoList.add(dto) // se le agrega a la lista de productos DTO
+        }
+
+        return productDtoList // Se retorna la lista
     }
 }
