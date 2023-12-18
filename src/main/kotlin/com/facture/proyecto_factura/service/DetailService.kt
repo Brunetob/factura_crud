@@ -21,7 +21,8 @@ class DetailService {
         return detailRepository.findAll()
     }
     fun save(detailModel: DetailModel): DetailModel {
-        validateDetailModel(detailModel) // Código normañ
+        validateDetailModel(detailModel)
+
         // Guardar el detalle en el repositorio
         val savedDetail = detailRepository.save(detailModel)
 
@@ -32,7 +33,7 @@ class DetailService {
 
         // Actualizar el stock del producto
         product.apply {
-            // stock = stock - detailModel.quantity!!
+            //stock -= detailModel.quantity!!
             stock = stock?.minus(detailModel.quantity ?: 0) ?: 0
         }
 
