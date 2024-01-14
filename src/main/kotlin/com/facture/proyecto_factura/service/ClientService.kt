@@ -89,7 +89,6 @@ class ClientService {
         clientModel.apply {
             fullNameClient?.takeIf { it.trim().isNotEmpty() }
                 ?: throw Exception("El nombre del cliente no debe ser nulo o vacío")
-            // Otros campos y validaciones según tus necesidades
         }
     }
 }

@@ -16,7 +16,7 @@ spring:
     schemas: public
 
   datasource:
-    url: jdbc:postgresql://berry.db.elephantsql.com:5432/yrpgbcms?socketTimeout=3
-    username: yrpgbcms
-    password: cj9OBjDk5dKQLmz3DtAkG30hKb-8qdiC
+    url: jdbc:postgresql://batyr.db.elephantsql.com:5432/sowompru?socketTimeout=3
+    username: sowompru
+    password: O1sa6vaVegZ_h6PLwO_5H-9Z4JU2E49D
     driverClassName: org.postgresql.Driver
