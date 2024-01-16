@@ -16,7 +16,7 @@ spring:
     schemas: public
 
   datasource:
-    url: jdbc:postgresql://batyr.db.elephantsql.com:5432/sowompru?socketTimeout=3
-    username: sowompru
-    password: O1sa6vaVegZ_h6PLwO_5H-9Z4JU2E49D
+    url: jdbc:postgresql://drona.db.elephantsql.com:5432/nugedmlb?socketTimeout=3
+    username: nugedmlb
+    password: mzn5M83RCDCCE4AxgKgVbsbkjxI6S_gg
     driverClassName: org.postgresql.Driver
