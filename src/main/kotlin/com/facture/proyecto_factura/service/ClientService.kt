@@ -85,12 +85,10 @@ class ClientService {
     }
 
     // Validaciones comunes
-    private fun validateClientModel(clientModel: ClientModel) {
+    fun validateClientModel(clientModel: ClientModel) {
         clientModel.apply {
             fullNameClient?.takeIf { it.trim().isNotEmpty() }
                 ?: throw Exception("El nombre del cliente no debe ser nulo o vacío")
         }
     }
-
-
 }
