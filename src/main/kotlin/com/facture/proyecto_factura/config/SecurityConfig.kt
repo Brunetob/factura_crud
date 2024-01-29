@@ -1,7 +1,5 @@
 package com.facture.proyecto_factura.config
 
-
-
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -34,14 +32,12 @@ class SecurityConfig {
             .authorizeHttpRequests{authRequest->
                 authRequest
                     .requestMatchers("/auth/**").permitAll()
-                    // .requestMatchers(HttpMethod.GET,"/product/**").hasAnyRole("admin")
-                    .anyRequest().authenticated() // denyAll()
+                    .requestMatchers("/api/clients/**").hasAnyRole("admin","ventas")
+                    .requestMatchers(HttpMethod.GET,"/api/products/**").hasAnyRole("admin")
+                    .anyRequest().denyAll() // denyAll() authenticated()
             }
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter::class.java)
-
         return http.build()
-
-
     }
 
     @Bean
