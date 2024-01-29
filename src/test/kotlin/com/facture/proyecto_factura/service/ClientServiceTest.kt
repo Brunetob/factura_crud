@@ -22,8 +22,8 @@ class ClientServiceTest { // clase de prueba
     private val clientMock = ClientModel().apply {
         id=1
         ciClient="0301707030"
-        fullNameClient="Juan"
-        addressClient= "Cuenca"
+        fullNameClient=""
+        addressClient= ""
     }
 
     @Test
