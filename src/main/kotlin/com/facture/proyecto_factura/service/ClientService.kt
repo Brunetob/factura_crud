@@ -90,5 +90,9 @@ class ClientService {
             fullNameClient?.takeIf { it.trim().isNotEmpty() }
                 ?: throw Exception("El nombre del cliente no debe ser nulo o vacío")
         }
+        clientModel.apply {
+            addressClient?.takeIf { it.trim().isNotEmpty() }
+                ?: throw Exception("El addres del cliente no debe ser nulo o vacío")
+        }
     }
 }

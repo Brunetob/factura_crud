@@ -12,8 +12,9 @@ import org.junit.jupiter.api.Assertions.*
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito
+import org.springframework.boot.test.context.SpringBootTest
 import java.io.File
-
+@SpringBootTest
 class InvoiceServiceTest { // Validar lalves foráneas
 
     @InjectMocks

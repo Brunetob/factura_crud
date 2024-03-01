@@ -1,5 +1,12 @@
 {
-  "ciClient": "0107425761",
-  "fullNameClient": "Cliente 1",
-  "addressClient": "Direccion client 1"
+  "id": 1,
+  "clientId": {
+    "id": 1,
+    "ciClient": "0301707030",
+    "fullNameClient": "Juan",
+    "addressClient": "Cuenca"
+  },
+  "code": "ABC123",
+  "createAt": "2024-02-01T12:34:56",
+  "total": 123.45
 }

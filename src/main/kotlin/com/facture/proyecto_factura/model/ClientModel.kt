@@ -22,5 +22,4 @@ class ClientModel{
 
     @Column(name = "address_client")
     var addressClient: String? = null   // Dirección del cliente
-
 }

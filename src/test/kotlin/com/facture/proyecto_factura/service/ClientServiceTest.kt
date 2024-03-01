@@ -11,6 +11,8 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.springframework.boot.test.context.SpringBootTest
 
+
+@SpringBootTest
 class ClientServiceTest { // clase de prueba
 
     @InjectMocks
